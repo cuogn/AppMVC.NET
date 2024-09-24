@@ -1,0 +1,14 @@
+@model ASP_MVC_01.Models.ProductModel
+@{
+    var product = ViewBag.product as ProductModel;
+}
+
+<p>@ViewData["Title"]</p>
+<div class="card bg-primary text-white">
+    <h1 class="card-header">@product.Name</h1>
+    <div class="card-header">
+        <p class="card-text">
+            Giá: @product.Price
+        </p>
+    </div>
+</div>
