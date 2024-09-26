@@ -24,3 +24,15 @@ Khi sử dụng ViewData, nó tự động nạp View con vào View cha, tức l
 3 – thông qua ViewBag
 Truyền dữ liệu từ trang này qua trang khác
 TempData
+[Attribute] like [Annotation]
+
+##Area
+
+- Là tên dùng để routing
+- Là cấu trúc thư mục chứa M.V.C
+- Thiết lập area cho controller bằng `[Area("AreaName")]`
+- Tạo cấu trúc thư mục
+
+```
+dotnet aspnet-codegenerator area Product
+```

@@ -1,5 +1,7 @@
 using ASP_MVC_01.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing.Constraints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 // builder.Services.AddSingleton<ProductService>();
 builder.Services.AddSingleton(typeof(ProductService), typeof(ProductService));
+builder.Services.AddSingleton(typeof(PlanetService), typeof(PlanetService));
 var env = builder.Environment;
 builder.Services.Configure<RazorViewEngineOptions>(options => {
     //View/Controller/Action.cshtml
@@ -32,13 +35,38 @@ if (!env.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+// app.UseStatusCodePages(); //tạo response từ lỗi 400 trở đi
 
 app.UseRouting();
 
 app.UseAuthorization(); //kiểm tra quyền truy cập
 app.MapRazorPages();
+
+app.MapAreaControllerRoute(
+    name: "product",
+    areaName: "ProductManage",
+    pattern: "{controller}/{action=Index}/{id?}"
+);
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
+//Url :start-here -> Route đến /FirstController/ViewProductAction/id=3
+app.MapControllerRoute(
+    name: "first",
+    pattern: "{url}/{id?}",
+    defaults: new {
+        controller = "First",
+        action = "ViewProduct"
+    },
+    constraints: new {
+        url = new RegexRouteConstraint(@"^((xemsanpham)|(viewproduct))$"),
+        id = new RangeRouteConstraint(2,4)
+    }
+);
+;
+app.MapRazorPages();
 app.Run();
