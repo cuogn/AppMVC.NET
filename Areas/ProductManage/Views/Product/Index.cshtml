@@ -1,0 +1,18 @@
+@using ASP_MVC_01.Models
+@model List<ProductModel>
+    <h1>Danh sách các sản phẩm</h1>
+    <ul>
+        @foreach(var product in Model){
+            <li>@product.Name</li>
+        }
+    </ul>
+<p>@Url.ActionLink()</p>
+<p>@Url.Action()</p>
+<p>@Url.Action("Venus", "Planet")</p>
+<p>@Url.Action("Index", "Product", new {area = "ProductManage", id = 123})</p>
+<a asp-action="Privacy" asp-controller="Home">@Url.RouteUrl("default", new {action = "Privacy", controller = "Home"})</a>
+<a asp-action="Index", asp-controller="Product",asp-area="ProductMange", asp-all-route-data='new Dictionary<string,string>(){
+        {"name","Tran Van Tuan"},
+        {"abc","xyz"},
+        {"id","3"}
+        }'>Bam vao day</a>

@@ -97,6 +97,8 @@ namespace ASP_MVC_01.Controllers {
         }
             [TempData]
             public string StatusMessage {get; set;}
+
+        [AcceptVerbs("POST")]
         public IActionResult ViewProduct(int? id){
 
 
