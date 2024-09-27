@@ -1,16 +1,25 @@
+using System.Configuration;
+using System.Data.Entity;
+using App.Models;
 using ASP_MVC_01.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 // builder.Services.AddSingleton<ProductService>();
 builder.Services.AddSingleton(typeof(ProductService), typeof(ProductService));
 builder.Services.AddSingleton(typeof(PlanetService), typeof(PlanetService));
+
+builder.Services.AddDbContext<AppDbContext>(options => {
+    string connectString = builder.Configuration.GetConnectionString("AppMvcConnectionString");
+    options.UseSqlServer(connectString);
+});
+
 var env = builder.Environment;
 builder.Services.Configure<RazorViewEngineOptions>(options => {
     //View/Controller/Action.cshtml
