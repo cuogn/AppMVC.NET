@@ -1,5 +1,4 @@
-using System.Data.Entity;
-using App.Models;
+using ASP_MVC_01.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

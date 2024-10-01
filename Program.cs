@@ -1,6 +1,5 @@
 using System.Configuration;
-using System.Data.Entity;
-using App.Models;
+using ASP_MVC_01.Models;
 using ASP_MVC_01.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;

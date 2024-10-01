@@ -1,0 +1,33 @@
+{
+  "name": "asp_mvc_01",
+  "version": "1.0.0",
+  "description": "asp_mvc_01",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "gulp sass",
+    "watch-css": "gulp sass --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-cli": "^3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulplog": "^2.2.0",
+    "plugin-error": "^2.0.1",
+    "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
+    "sass": "^1.79.4",
+    "sass-loader": "^16.0.2",
+    "vinyl": "^3.0.0"
+  }
+}

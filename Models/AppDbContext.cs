@@ -1,9 +1,10 @@
 // using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ASP_MVC_01.Models.Contacts;
 using Microsoft.EntityFrameworkCore;
 
-namespace App.Models 
+namespace ASP_MVC_01.Models 
 {
-    // ASP_MVC_01.models.AppDbContext
+    // ASP_MVC_01.Models.AppDbContext
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -32,5 +33,7 @@ namespace App.Models
             // }
 
         }
+        public DbSet<Contact> Contacts {get; set;}
+
     }
 }

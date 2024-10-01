@@ -5,7 +5,7 @@
 namespace ASP_MVC_01.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Contacts : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
